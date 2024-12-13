@@ -14,9 +14,9 @@ def check_time_format(given_time) -> bool:
     """
     try:
         datetime.datetime.strptime(given_time, "%H:%M:%S")  # Try converting to HH:MM:SS
-        return False
-    except ValueError:
         return True
+    except ValueError:
+        return False
 
 def alarm_clock(clock_time):
 
@@ -46,7 +46,7 @@ def alarm_clock(clock_time):
 if __name__ == '__main__':
 
     ans = str(input('Choose your alarm clock(ex: 00:00:00): '))
-    while check_time_format(ans):
+    while not check_time_format(ans):
         ans = str(input('Choose your alarm clock(ex: 00:00:00): '))
 
     alarm_clock(ans)
